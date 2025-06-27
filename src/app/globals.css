@@ -1,0 +1,23 @@
+body.bg-dark {
+  background-color: #121212 !important;
+  color: #f1f1f1 !important;
+}
+
+.import-card {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--import-bg);
+  color: var(--import-text);
+  transition: background-color 0.3s ease;
+}
+
+:root {
+  --import-bg: #ffffff;
+  --import-text: #222;
+}
+
+body.bg-dark {
+  --import-bg: #1e1e1e;
+  --import-text: #f1f1f1;
+}

@@ -1,10 +1,13 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeContext } from '../context/ThemeContext'; // Adjust path if needed
+import '../styles/FilterStyles.css'
 
 const NavBar = () => {
   const pathname = usePathname();
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   const handleExport = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -17,9 +20,8 @@ const NavBar = () => {
     URL.revokeObjectURL(url);
   };
 
-
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'bg-body-tertiary'}`}>
       <div className="container-fluid">
         <Link className="navbar-brand" href="/">Task Buddy</Link>
 
@@ -30,14 +32,16 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link className={`nav-link ${pathname === '/' ? 'active' : ''}`} href="/">Dashboard</Link>
-            <Link className={`nav-link ${pathname === '/create' ? 'active' : ''}`} href="/create">Create</Link>
+            <Link className={`nav-link ${pathname === '/create' ? 'active' : ''}`} href="/create">Create a New Task</Link>
             <Link className={`nav-link ${pathname === '/summary' ? 'active' : ''}`} href="/summary">Summary</Link>
-            <Link className="nav-link" href="/import">Import</Link>
+            <Link className="nav-link" href="/import">Import Tasks</Link>
           </div>
         </div>
 
-        <button className="btn btn-outline-secondary ms-2 mx-3" onClick={handleExport}>Export</button>
-        <button type="button" className="btn btn-outline-success">Enable Dark Mode</button>
+        <button className={`btn btn-outline-secondary ms-2 mx-3 resetBtn ${darkMode ? 'resetBtnDark' : 'resetBtnLight'}`} onClick={handleExport}>Export Tasks</button>
+        <button type="button" className={`btn btn-outline-secondary ${darkMode ? 'resetBtnDark' : 'resetBtnLight'}`} onClick={toggleTheme}>
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
       </div>
     </nav>
   );

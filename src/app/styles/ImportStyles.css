@@ -1,0 +1,62 @@
+/* === Light Mode Variables === */
+:root {
+  --import-bg: #ffffff;
+  --import-text: #222222;
+  --import-border: #dee2e6;
+  --import-shadow: rgba(0, 0, 0, 0.05);
+  --text-muted: #6c757d;
+}
+
+/* === Dark Mode Variables === */
+body.bg-dark {
+  --import-bg: #2a2a2a;
+  --import-text: #f1f1f1;
+  --import-border: #444;
+  --import-shadow: rgba(255, 255, 255, 0.06);
+  --text-muted: #cccccc;
+}
+
+/* === Import Card === */
+.import-card {
+  max-width: 500px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: var(--import-bg);
+  color: var(--import-text);
+  border: 1px solid var(--import-border);
+  box-shadow: 0 0 10px var(--import-shadow);
+  transition: all 0.3s ease;
+}
+
+/* === File Input Styling === */
+.import-card input[type="file"] {
+  background-color: transparent;
+  color: var(--import-text);
+  border: 1px solid var(--import-border);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+}
+
+/* === File Selector Button Styling === */
+.import-card input[type="file"]::file-selector-button {
+  background-color: var(--import-text);
+  color: var(--import-bg);
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Hover effect for file selector button === */
+body.bg-dark .import-card input[type="file"]::file-selector-button {
+  background-color: #e0e0e0;
+  color: #1e1e1e;
+}
+
+/* === Custom muted text that adapts to theme === */
+.text-muted-custom {
+  color: var(--text-muted) !important;
+}

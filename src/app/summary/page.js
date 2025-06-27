@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import SummaryChartStatus from '../components/SummaryChartStatus';
 import SummaryChartPriority from '../components/SummaryChartPriority';
 import SummaryHighlights from '../components/SummaryHighlights';
+import '../styles/SummaryStyles.css';
+
 
 const SummaryPage = () => {
   const [tasks, setTasks] = useState([]);

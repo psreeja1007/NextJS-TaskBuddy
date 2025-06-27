@@ -1,0 +1,88 @@
+/* styles/TaskStyles.css */
+
+/* Card Animation */
+.task-card {
+  border-left: 5px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 0.75rem;
+}
+
+.task-card:hover {
+  transform: scale(1.025) translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Light Mode Backgrounds */
+.card-light-low {
+  background-color:  #e0f7fa;
+  border-left-color: #79b8f3;
+}
+.card-light-medium {
+  background-color: #fff3cd;
+  border-left-color: #f0ad4e;
+}
+.card-light-high {
+  background-color: #f8d7da;
+  border-left-color: #f67280;
+}
+
+/* Dark Mode Backgrounds */
+.card-dark-low {
+  background-color: #004d4d;
+  border-left-color: #70aee0;
+}
+.card-dark-medium {
+  background-color: #5f4b00;
+  border-left-color: #e0a84c;
+}
+.card-dark-high {
+  background-color: #5b1d1d;
+  border-left-color: #db6c74;
+}
+
+/* Tag/Badge Styling */
+.task-badges .badge {
+  margin-right: 0.4rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  border-radius: 0.4rem;
+  padding: 0.45em 0.6em;
+}
+
+/* Status Dot */
+.status-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.status-todo { background-color: #6c757d; }
+.status-inprogress { background-color: #17a2b8; }
+.status-done { background-color: #28a745; }
+
+/* Filter Card */
+.filters-card {
+  border-left: 5px solid #0d6efd;
+  background-color: #f9fcff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem rgba(13, 110, 253, 0.1);
+}
+
+body.bg-dark .filters-card {
+  background-color: #1e1e1e;
+  border-left-color: #66b2ff;
+}
+
+/* Dark mode text color override for cards */
+body.bg-dark .task-card.card-dark-low,
+body.bg-dark .task-card.card-dark-medium,
+body.bg-dark .task-card.card-dark-high {
+  color: #f1f1f1;
+}
+
+body.bg-dark .task-card .card-subtitle,
+body.bg-dark .task-card .text-muted {
+  color: #cccccc !important;
+}
+

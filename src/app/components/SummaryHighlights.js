@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 import { differenceInCalendarDays, parseISO } from 'date-fns';
+import '../styles/SummaryStyles.css';
+
 
 const SummaryHighlights = ({ tasks }) => {
   const today = new Date();
@@ -15,7 +17,7 @@ const SummaryHighlights = ({ tasks }) => {
   const pending = tasks.filter(task => task.status !== 'Done');
 
   return (
-    <div className="mb-4">
+    <div className="summary-highlights mb-4">
       <h5>Quick Stats</h5>
       <ul>
         <li>✅ Completed Tasks: {completed.length}</li>
@@ -23,6 +25,7 @@ const SummaryHighlights = ({ tasks }) => {
         <li>🕐 Pending Tasks: {pending.length}</li>
       </ul>
     </div>
+
   );
 };
 

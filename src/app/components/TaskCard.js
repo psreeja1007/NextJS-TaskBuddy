@@ -1,63 +1,69 @@
 'use client';
-import React from 'react';
-import Link from 'next/link';
+import React, { useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Badge } from 'react-bootstrap';
+import '../styles/TaskStyles.css';
+import { ThemeContext } from '../context/ThemeContext'; // adjust path as needed
 
 const TaskCard = ({ task, onDelete }) => {
   const router = useRouter();
-  const { id, title, description, dueDate, priority, status, tags } = task;
+  const { darkMode } = useContext(ThemeContext);
 
-  const formattedDate = new Date(dueDate);
-  const displayDate = `${formattedDate.getDate()} ${formattedDate.toLocaleString('default', { month: 'long' })}, ${formattedDate.getFullYear()}`;
+  const { id, title, dueDate, priority, status, tags } = task;
 
-  // Edit handler
+  const displayDate = new Date(dueDate).toLocaleDateString('en-US', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
   const handleEdit = (e) => {
-    e.stopPropagation(); // prevent card click
+    e.stopPropagation();
     router.push(`/edit/${id}`);
   };
 
-  // Delete handler
   const handleDelete = (e) => {
-    e.stopPropagation(); // prevent card click
-    const confirmDelete = window.confirm(`Are you sure you want to delete the task: "${title}"?`);
-    if (confirmDelete) {
-        onDelete(id);
-        
+    e.stopPropagation();
+    if (window.confirm(`Delete task: "${title}"?`)) {
+      onDelete(id);
     }
-    };
+  };
 
-
-  // Whole card click → navigate to details
   const handleCardClick = () => {
     router.push(`/task/${id}`);
   };
 
+  const getCardClass = () => {
+    const base = darkMode ? 'card-dark' : 'card-light';
+    return `task-card ${base}-${priority.toLowerCase()}`;
+  };
+
   return (
-    <div
-      className="card shadow-sm h-100 hover-shadow"
-      style={{ cursor: 'pointer' }}
-      onClick={handleCardClick}
-    >
+    <div className={`card h-100 ${getCardClass()}`} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <div className="card-body d-flex flex-column justify-content-between">
         <div>
           <h5 className="card-title">{title}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">Due: {displayDate}</h6>
+          <h6 className="card-subtitle mb-2 text-muted">
+            Due: {displayDate}
+          </h6>
 
           {/* Badges */}
-          <div className="mb-2">
-            <Badge bg={priority === 'High' ? 'danger' : priority === 'Medium' ? 'warning' : 'secondary'}>
-              {priority}
-            </Badge>{' '}
-            <Badge bg={status === 'Done' ? 'success' : status === 'In Progress' ? 'info' : 'dark'}>
+          <div className="mb-2 task-badges">
+            <Badge bg="secondary" className="me-1">{priority}</Badge>
+            <Badge bg="light" text="dark" className="me-1">
+              <span
+                className={`status-dot ${
+                  status === 'Done' ? 'status-done' :
+                  status === 'In Progress' ? 'status-inprogress' :
+                  'status-todo'
+                }`}
+              />
               {status}
             </Badge>
           </div>
 
           {/* Tags */}
-          <div className="mb-3">
+          <div className="mb-3 task-badges">
             {tags && tags.map((tag, idx) => (
-              <Badge bg="light" text="dark" className="me-1" key={idx}>{tag}</Badge>
+              <Badge bg="light" text="dark" key={idx}>#{tag}</Badge>
             ))}
           </div>
         </div>

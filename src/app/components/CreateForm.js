@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
+import '../styles/CreateFormStyles.css';
 
 // STEP 1: Define validation rules
 const schema = Yup.object().shape({
@@ -76,6 +77,7 @@ const CreateForm = () => {
   return (
     <div className="container mt-4">
       <form onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="form-heading mb-4 text-center">Create New Task</h2>
         {/* Title */}
         <div className="mb-3">
           <label className="form-label">Title</label>

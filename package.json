@@ -19,6 +19,7 @@
     "react-hook-form": "^7.58.1",
     "recharts": "^3.0.2",
     "uuid": "^11.1.0",
+    "vercel": "^44.2.7",
     "yup": "^1.6.1"
   },
   "devDependencies": {

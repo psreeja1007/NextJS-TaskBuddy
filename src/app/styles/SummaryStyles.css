@@ -1,0 +1,84 @@
+/* styles/SummaryStyles.css */
+
+h5 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--heading-color, #0d6efd);
+  text-align: center;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+body.bg-dark h5 {
+  --heading-color: #66b2ff;
+}
+
+/* Quick Stats List */
+.summary-highlights {
+  background-color: var(--summary-bg, #f9fbff);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.15);
+  max-width: 380px;
+  margin: 0 auto 2rem auto;
+  color: var(--summary-text, #212529);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.bg-dark .summary-highlights {
+  --summary-bg: #222b3a;
+  --summary-text: #e0e6f2;
+  box-shadow: 0 5px 15px rgba(102, 170, 255, 0.3);
+}
+
+.summary-highlights ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.summary-highlights ul li {
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Recharts overrides */
+.recharts-default-tooltip {
+  background: var(--tooltip-bg, #fff);
+  color: var(--tooltip-text, #000);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  font-weight: 600;
+}
+
+body.bg-dark .recharts-default-tooltip {
+  --tooltip-bg: #333d55;
+  --tooltip-text: #eaeaea;
+}
+
+.recharts-legend-item text {
+  fill: var(--legend-text, #212529);
+  font-weight: 600;
+}
+
+body.bg-dark .recharts-legend-item text {
+  --legend-text: #e0e6f2;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--heading2-color, #0a58ca);
+  text-align: center;
+  margin-bottom: 2rem;
+  user-select: none;
+  letter-spacing: 0.03em;
+  transition: color 0.3s ease;
+}
+
+body.bg-dark h2 {
+  --heading2-color: #7db9ff;
+}

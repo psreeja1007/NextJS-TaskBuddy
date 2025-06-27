@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import '../styles/ImportStyles.css'
 
 const ImportPage = () => {
   const router = useRouter();
@@ -13,7 +14,6 @@ const ImportPage = () => {
       const text = await file.text();
       const importedTasks = JSON.parse(text);
 
-      // Optionally validate structure
       if (!Array.isArray(importedTasks)) {
         alert("Invalid task format.");
         return;
@@ -35,11 +35,26 @@ const ImportPage = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h3>Import Tasks</h3>
-      <p>Select a `.json` file exported from Task Buddy:</p>
-      <input type="file" accept=".json" onChange={handleFileUpload} className="form-control" />
+    <div className="container d-flex justify-content-center align-items-center mt-5">
+  <div className="card import-card">
+    <h3 className="text-center mb-3">📥 Import Tasks</h3>
+    <p className="text-muted-custom text-center mb-4">
+      Select a <code>.json</code> file exported from Task Buddy
+    </p>
+    <input
+      type="file"
+      accept=".json"
+      onChange={handleFileUpload}
+      className="form-control mb-3"
+    />
+    <div className="text-center">
+      <small className="text-muted-custom">
+        Imported tasks will be added to your existing list.
+      </small>
     </div>
+  </div>
+</div>
+
   );
 };
 

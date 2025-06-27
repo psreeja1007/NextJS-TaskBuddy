@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import '../styles/SummaryStyles.css';
 
 const COLORS = ['#8884d8', '#82ca9d', '#ffc658'];
 

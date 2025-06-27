@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import '../styles/CreateFormStyles.css'
 
 const schema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
@@ -79,6 +80,7 @@ const EditForm = ({ taskId }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
+      <h2 className="form-heading mb-4 text-center">Edit Task</h2>
       {/* Title */}
       <div className="mb-3">
         <label className="form-label">Title</label>
@@ -125,7 +127,7 @@ const EditForm = ({ taskId }) => {
         </select>
       </div>
 
-      <button type="submit" className="btn btn-outline-success">Update Task</button>
+      <button type="submit" className="btn btn-outline-primary">Update Task</button>
     </form>
   );
 };

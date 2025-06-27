@@ -1,0 +1,38 @@
+/* Reset button styles */
+.resetBtn {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid;
+  cursor: pointer;
+  background-color: transparent;
+  /* Optionally, remove default bootstrap styles */
+  /* You might want to override bootstrap reset */
+  /* e.g. */
+  outline: none;
+}
+
+/* Light mode */
+.resetBtnLight {
+  color: #212529;
+  border-color: #212529;
+}
+
+.resetBtnLight:hover {
+  color: white;
+  background-color: #212529;
+  border-color: #212529;
+}
+
+/* Dark mode */
+.resetBtnDark {
+  color: #eaeaea;
+  border-color: #eaeaea;
+}
+
+.resetBtnDark:hover {
+  color: #1f1f1f;
+  background-color: #eaeaea;
+  border-color: #eaeaea;
+}
+

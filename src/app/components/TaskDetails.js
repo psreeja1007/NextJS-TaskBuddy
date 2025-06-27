@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import '../styles/TaskDetailsStyles.css';
 
 const TaskDetails = ({ taskId }) => {
   const router = useRouter();
@@ -37,13 +38,34 @@ const TaskDetails = ({ taskId }) => {
   const displayDate = `${formattedDate.getDate()} ${formattedDate.toLocaleString('default', { month: 'long' })}, ${formattedDate.getFullYear()}`;
 
   return (
-    <div className='container'>
+    <div className='task-details-container'>
       <h2>{task.title}</h2>
-      <p><strong>Description:</strong> {task.description}</p>
-      <p><strong>Due Date:</strong> {displayDate}</p>
-      <p><strong>Priority:</strong> {task.priority}</p>
-      <p><strong>Status:</strong> {task.status}</p>
-      <p><strong>Tags:</strong> {task.tags && task.tags.join(', ')}</p>
+
+      <div className="task-details-container">
+      <div className="task-details-row">
+        <div className="task-details-label">Description</div>
+        <div className="task-details-value">{task.description || '-No Description-'}</div>
+      </div>
+
+      <div className="task-details-row">
+        <div className="task-details-label">Due Date</div>
+        <div className="task-details-value">{displayDate}</div>
+      </div>
+      <div className="task-details-row">
+        <div className="task-details-label">Priority</div>
+        <div className="task-details-value">{task.priority}</div>
+      </div>
+
+      <div className="task-details-row">
+        <div className="task-details-label">Status</div>
+        <div className="task-details-value">{task.status}</div>
+      </div>
+
+      <div className="task-details-row">
+        <div className="task-details-label">Tags</div>
+        <div className="task-details-value">{task.tags && task.tags.join(', ')}</div>
+      </div>
+      </div>
 
       <div className="mt-3">
         <button className="btn btn-outline-primary me-2" onClick={handleEdit}>Edit</button>
@@ -55,9 +77,7 @@ const TaskDetails = ({ taskId }) => {
             ← Back to Dashboard
         </button>
       </div>
-      
-
-    </div>
+      </div>
   );
 };
 

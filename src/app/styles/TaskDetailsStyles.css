@@ -1,0 +1,125 @@
+/* styles/TaskDetailsStyles.css */
+
+.task-details-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  background-color: var(--card-bg, #fff);
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  color: var(--text-color, #222);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+body.bg-dark .task-details-container {
+  --card-bg: #222b3a;
+  --text-color: #e0e6f2;
+  box-shadow: 0 8px 24px rgba(102, 170, 255, 0.3);
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--heading-color, #0a58ca);
+  transition: color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+body.bg-dark h2 {
+  --heading-color: #7db9ff;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+p strong {
+  color: var(--strong-color, #333);
+}
+
+body.bg-dark p strong {
+  --strong-color: #aad4ff;
+}
+
+/* Button container spacing */
+.mt-3 {
+  margin-top: 1.5rem !important;
+}
+
+/* Back button tweaks */
+.btn-secondary {
+  border-radius: 0.6rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #495057;
+  color: #fff;
+}
+
+body.bg-dark .btn-secondary:hover {
+  background-color: #3a4a65;
+}
+
+/* Outline buttons */
+.btn-outline-primary,
+.btn-outline-danger {
+  border-radius: 0.6rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0a58ca;
+  color: #fff;
+  border-color: #084298;
+}
+
+.btn-outline-danger:hover {
+  background-color: #b02a37;
+  color: #fff;
+  border-color: #8a1c24;
+}
+
+.task-details-row {
+  display: flex;
+  padding: 0.3rem 0;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.task-details-label {
+  flex: 0 0 150px;          /* fixed width for all labels */
+  font-weight: 600;
+  text-align: right;        /* right align text inside label */
+  padding-right: 0.5rem;    /* space between label and colon */
+  user-select: none;
+  position: relative;
+  white-space: nowrap;      /* prevent label wrapping */
+}
+
+.task-details-label::after {
+  content: ":";             /* colon added */
+  position: absolute;
+  right: 0;                 /* colon flush at the right edge */
+}
+
+.task-details-value {
+  flex: 1;
+  color: var(--text-color, #222);
+  white-space: pre-wrap;    /* allows line breaks */
+}
+
+.task-details-info {
+  margin-top: 1rem;
+}

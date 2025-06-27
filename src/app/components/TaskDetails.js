@@ -68,14 +68,11 @@ const TaskDetails = ({ taskId }) => {
       </div>
 
       <div className="mt-3">
-        <button className="btn btn-outline-primary me-2" onClick={handleEdit}>Edit</button>
-        <button className="btn btn-outline-danger" onClick={handleDelete}>Delete</button>
-      </div>
-
-      <div className="mt-3">
-        <button className="btn btn-secondary mb-3" onClick={() => router.push('/')}>
+        <button className="btn btn-outline-success mx-3" onClick={() => router.push('/')}>
             ← Back to Dashboard
         </button>
+        <button className="btn btn-outline-primary me-2" onClick={handleEdit}>Edit</button>
+        <button className="btn btn-outline-danger" onClick={handleDelete}>Delete</button>     
       </div>
       </div>
   );

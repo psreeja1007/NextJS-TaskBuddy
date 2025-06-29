@@ -86,3 +86,5 @@
 ## Export and Import Tasks
 - **Export**: Save all your tasks as a downloadable JSON file
 - **Import**: Load tasks from a previously exported JSON file
+
+![Dashboard](image.png)
